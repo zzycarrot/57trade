@@ -48,6 +48,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             log.info("无权限");
             return false;
         }
+
         log.info("token 合法放行");
         return true;
     }

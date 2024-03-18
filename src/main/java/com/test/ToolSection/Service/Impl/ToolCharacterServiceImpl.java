@@ -43,4 +43,12 @@ public class ToolCharacterServiceImpl implements ToolCharacterService {
         PageBean pageBean = new PageBean(total,list);
         return pageBean;
     }
+
+    @Override
+    public Integer update(Tool tool) {
+        tool.setUpdateTime(LocalDateTime.now());
+        if(tool.getWeight()==null)tool.setWeight(3);
+        if(tool.getView()==null)tool.setView(0);
+        return toolCharactorMapper.update(tool);
+    }
 }

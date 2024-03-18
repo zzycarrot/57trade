@@ -62,6 +62,15 @@ public class ToolCharacterController {
         PageBean pageBean = toolCharacterService.selectpage(start,pagesize,name,ishot,BeginPrice,EndPrice);
         return Result.Success(pageBean);
     }
+//    修改文件
+    @PostMapping("/ToolCharacter/update")
+    public Result update(Tool tool){
+        log.info("更新数据:{}",tool);
+        Integer code = toolCharacterService.update(tool);
+        if(code == 1)
+            return Result.Success();
+        else return Result.Error("No id");
+    }
 //    上传文件
     @PostMapping("/uploadFile")
     public Result uploadImg(@RequestParam("file") MultipartFile file, @RequestParam("equipmentId") String equipmentId) {

@@ -1,10 +1,7 @@
 package com.test.ToolSection.Mapper;
 
 import com.test.ToolSection.POJO.Tool;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -23,4 +20,6 @@ public interface ToolCharacterMapper {
 
     List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice);
 
+    @Update("update toolcharacter set tradeplatform.toolcharacter.name = #{name},tradeplatform.toolcharacter.price = #{price},tradeplatform.toolcharacter.qq = #{qq},tradeplatform.toolcharacter.image = #{image},tradeplatform.toolcharacter.update_time = #{updateTime},tradeplatform.toolcharacter.weight = #{weight},tradeplatform.toolcharacter.view = #{view} where id = #{id}")
+    Integer update(Tool tool);
 }
