@@ -33,8 +33,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginCheckInterceptor).addPathPatterns("/User/**")
-                                                        .addPathPatterns("/article/upload")
-                                                        .addPathPatterns("/article/deleteBatch")
+//                                                        .addPathPatterns("/article/insert")
+//                                                        .addPathPatterns("/article/deleteBatch")
                                                         .addPathPatterns("/article/update");
 
     }
