@@ -44,7 +44,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
         System.out.println(role);
         if (url.contains("article"))return true;
         if(!role.contentEquals("admin")){
-
+            ///
             log.info("无权限");
             return false;
         }
