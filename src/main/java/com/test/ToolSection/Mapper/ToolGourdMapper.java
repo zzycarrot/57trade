@@ -1,10 +1,7 @@
 package com.test.ToolSection.Mapper;
 
 import com.test.ToolSection.POJO.Tool;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -25,4 +22,7 @@ public interface ToolGourdMapper {
 
     @Update("update toolGourd set tradeplatform.toolGourd.name = #{name},tradeplatform.toolGourd.price = #{price},tradeplatform.toolGourd.qq = #{qq},tradeplatform.toolGourd.image = #{image},tradeplatform.toolGourd.update_time = #{updateTime},tradeplatform.toolGourd.weight = #{weight},tradeplatform.toolGourd.view = #{view} where id = #{id}")
     Integer update(Tool tool);
+
+    @Select("select * from toolGourd where id = #{id}")
+    Tool select(Integer id);
 }

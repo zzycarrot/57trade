@@ -1,10 +1,7 @@
 package com.test.ToolSection.Mapper;
 
 import com.test.ToolSection.POJO.Tool;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -25,4 +22,7 @@ public interface ToolPetMapper {
 
     @Update("update toolPet set tradeplatform.toolPet.name = #{name},tradeplatform.toolPet.price = #{price},tradeplatform.toolPet.qq = #{qq},tradeplatform.toolPet.image = #{image},tradeplatform.toolPet.update_time = #{updateTime},tradeplatform.toolPet.weight = #{weight},tradeplatform.toolPet.view = #{view} where id = #{id}")
     Integer update(Tool tool);
+
+    @Select("select * from toolPet where id = #{id}")
+    Tool select(Integer id);
 }

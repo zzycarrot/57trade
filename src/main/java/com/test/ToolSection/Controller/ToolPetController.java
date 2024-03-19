@@ -26,6 +26,15 @@ public class ToolPetController {
         List<Tool> toolList = toolPetService.list();
         return Result.Success(toolList);
     }
+    //根据id查询单条数据
+    @GetMapping("/ToolPet/{id}")
+    private Result select(@PathVariable Integer id){
+        log.info("查询id为{}数据",id);
+        Tool tool = toolPetService.select(id);
+        if(tool != null)
+            return Result.Success(tool);
+        else return Result.Error("No id");
+    }
     //根据id删除单条数据
     @DeleteMapping("/ToolPet/{id}")
     private Result delete(@PathVariable Integer id){

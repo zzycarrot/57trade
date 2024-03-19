@@ -51,4 +51,9 @@ public class ToolGourdServiceImpl implements ToolGourdService {
         if(tool.getView()==null)tool.setView(0);
         return toolCharactorMapper.update(tool);
     }
+
+    @Override
+    public Tool select(Integer id) {
+        return toolCharactorMapper.select(id);
+    }
 }
