@@ -1,0 +1,1778 @@
+{
+	"info": {
+		"_postman_id": "9eae0dd5-c625-4028-8cae-3a0558db1167",
+		"name": "57交易阁",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33424033",
+		"_collection_link": "https://restless-sunset-309590.postman.co/workspace/Team-Workspace~db240b5a-8ccb-4781-8de8-92a4c7645890/collection/33424033-9eae0dd5-c625-4028-8cae-3a0558db1167?action=share&source=collection_link&creator=33424033"
+	},
+	"item": [
+		{
+			"name": "道具专区",
+			"item": [
+				{
+					"name": "人物道具",
+					"item": [
+						{
+							"name": "查询全部数据",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6InJvb3QiLCJleHAiOjE3MTAzNDU3OTJ9.IMk6ydU80h6wAlarIs94ILELOxY1SKNABV3zedrMJfqEthOICQlYb519mWezAb9I",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/ToolCharacter",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolCharacter"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增单条数据",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolCharacter?name=Tool10&price=2&qq=1234&image=2.png&weight=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolCharacter"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Tool10"
+										},
+										{
+											"key": "price",
+											"value": "2"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改数据(根据id)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolCharacter/update?name=Toolfix&price=2&qq=1234&image=2.png&weight=1&id=9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolCharacter",
+										"update"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Toolfix"
+										},
+										{
+											"key": "price",
+											"value": "2"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										},
+										{
+											"key": "id",
+											"value": "9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除单条数据",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "id",
+										"value": "1",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/ToolCharacter/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolCharacter",
+										"4"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "条件分页",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolCharacterPage?page=1&pagesize=5&name=Tool&ishot=1&BeginPrice=0&EndPrice=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolCharacterPage"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pagesize",
+											"value": "5"
+										},
+										{
+											"key": "name",
+											"value": "Tool"
+										},
+										{
+											"key": "ishot",
+											"value": "1"
+										},
+										{
+											"key": "BeginPrice",
+											"value": "0"
+										},
+										{
+											"key": "EndPrice",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "上传文件",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "equipmentId",
+											"value": "1.png",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1eedf940-ab0d-4920-abfc-24972f18860a"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8081/uploadFile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"uploadFile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据id查询单个",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolCharacter/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolCharacter",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "宠物道具",
+					"item": [
+						{
+							"name": "查询全部数据",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6InJvb3QiLCJleHAiOjE3MTAzNDU3OTJ9.IMk6ydU80h6wAlarIs94ILELOxY1SKNABV3zedrMJfqEthOICQlYb519mWezAb9I",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/ToolPet",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolPet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增单条数据",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolPet?name=Toolpet&price=2&qq=1234&image=2.png&weight=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolPet"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Toolpet"
+										},
+										{
+											"key": "price",
+											"value": "2"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改数据(根据id)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolPet/update?name=Toolfix&price=2&qq=1234&image=2.png&weight=1&id=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolPet",
+										"update"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Toolfix"
+										},
+										{
+											"key": "price",
+											"value": "2"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										},
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除单条数据",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "id",
+										"value": "1",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/ToolPet/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolPet",
+										"3"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "条件分页",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolPetPage?page=1&pagesize=5&name=Tool&ishot=0&BeginPrice=0&EndPrice=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolPetPage"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pagesize",
+											"value": "5"
+										},
+										{
+											"key": "name",
+											"value": "Tool"
+										},
+										{
+											"key": "ishot",
+											"value": "0"
+										},
+										{
+											"key": "BeginPrice",
+											"value": "0"
+										},
+										{
+											"key": "EndPrice",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "上传文件",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "equipmentId",
+											"value": "1.png",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1eedf940-ab0d-4920-abfc-24972f18860a"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8081/uploadFile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"uploadFile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据id查询单个",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolPet/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolPet",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "葫芦道具",
+					"item": [
+						{
+							"name": "查询全部数据",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6InJvb3QiLCJleHAiOjE3MTAzNDU3OTJ9.IMk6ydU80h6wAlarIs94ILELOxY1SKNABV3zedrMJfqEthOICQlYb519mWezAb9I",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/ToolGourd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolGourd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增单条数据",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolGourd?name=Tool122&price=2&qq=1234&image=2.png&weight=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolGourd"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Tool122"
+										},
+										{
+											"key": "price",
+											"value": "2"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改数据(根据id)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolGourd/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolGourd",
+										"update"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Toolfix",
+											"disabled": true
+										},
+										{
+											"key": "price",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "qq",
+											"value": "1234",
+											"disabled": true
+										},
+										{
+											"key": "image",
+											"value": "2.png",
+											"disabled": true
+										},
+										{
+											"key": "weight",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "id",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除单条数据",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "id",
+										"value": "1",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/ToolGourd/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolGourd",
+										"4"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "条件分页",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolGourdPage",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolGourdPage"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "pagesize",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Tool",
+											"disabled": true
+										},
+										{
+											"key": "ishot",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "BeginPrice",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "EndPrice",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "上传文件",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "equipmentId",
+											"value": "1.png",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1eedf940-ab0d-4920-abfc-24972f18860a"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8081/uploadFile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"uploadFile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据id查询单个",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/ToolGourd/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ToolGourd",
+										"0"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "文章管理系统",
+			"item": [
+				{
+					"name": "分页查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/article/selectAll?size=10&current=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"article",
+								"selectAll"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "current",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询单个文章",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/article/queryDetail?id=11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"article",
+								"queryDetail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "插入新文章",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"postman_insert_test\",\r\n    \"content\":\"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/article/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"article",
+								"insert"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "hi",
+									"disabled": true
+								},
+								{
+									"key": "content",
+									"value": "post",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据id更新文章",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":22,\r\n    \"title\":\"99\",\r\n    \"content\":\"233\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/article/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"article",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[31,32]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/article/deleteBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"article",
+								"deleteBatch"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "后台用户管理",
+			"item": [
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"root\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查看全部用户",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6InJvb3QiLCJleHAiOjE3MTA4NDM5NTN9.UPQag7wwZK9sZtMhZdLhHitW1ZYtGBqiKaFRPN7zEIfq0lyZ5uYmvYc1HX0NvCm5",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/User/selectAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"User",
+								"selectAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6InJvb3QiLCJleHAiOjE3MTA4NDM5NTN9.UPQag7wwZK9sZtMhZdLhHitW1ZYtGBqiKaFRPN7zEIfq0lyZ5uYmvYc1HX0NvCm5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"zzy\",\r\n    \"password\":\"231@#@SDsad13\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/User/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"User",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除用户",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6InJvb3QiLCJleHAiOjE3MTA4NDM5NTN9.UPQag7wwZK9sZtMhZdLhHitW1ZYtGBqiKaFRPN7zEIfq0lyZ5uYmvYc1HX0NvCm5",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/User/delete?username=root",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"User",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "root"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "宠物专区",
+			"item": [
+				{
+					"name": "宠物专区",
+					"item": [
+						{
+							"name": "查询全部数据",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6InJvb3QiLCJleHAiOjE3MTAzNDU3OTJ9.IMk6ydU80h6wAlarIs94ILELOxY1SKNABV3zedrMJfqEthOICQlYb519mWezAb9I",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/PetPet",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增单条数据",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetPet?name=Pet1&price=2&qq=1234&description=dis&image=2.png&weight=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPet"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Pet1"
+										},
+										{
+											"key": "price",
+											"value": "2"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "description",
+											"value": "dis"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改数据(根据id)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetPet/update?name=Toolfix&price=2&qq=1234&description=sad&image=2.png&weight=1&id=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPet",
+										"update"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Toolfix"
+										},
+										{
+											"key": "price",
+											"value": "2"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "description",
+											"value": "sad"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										},
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除单条数据",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "id",
+										"value": "1",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/PetPet/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPet",
+										"4"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "条件分页",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetPetPage?page=1&pagesize=5&ishot=1&BeginPrice=0&EndPrice=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPetPage"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pagesize",
+											"value": "5"
+										},
+										{
+											"key": "name",
+											"value": "Tool",
+											"disabled": true
+										},
+										{
+											"key": "ishot",
+											"value": "1"
+										},
+										{
+											"key": "BeginPrice",
+											"value": "0"
+										},
+										{
+											"key": "EndPrice",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据id查询单个",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetPet/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPet",
+										"2"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "坐骑专区",
+					"item": [
+						{
+							"name": "查询全部数据",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6InJvb3QiLCJleHAiOjE3MTAzNDU3OTJ9.IMk6ydU80h6wAlarIs94ILELOxY1SKNABV3zedrMJfqEthOICQlYb519mWezAb9I",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/PetRide",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetRide"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增单条数据",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetRide?name=Ride2&price=23&qq=1234&description=dis&image=2.png&weight=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetRide"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Ride2"
+										},
+										{
+											"key": "price",
+											"value": "23"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "description",
+											"value": "dis"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改数据(根据id)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetRide/update?name=Toolfix&price=2&qq=1234&description=sad&image=2.png&weight=1&id=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetRide",
+										"update"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Toolfix"
+										},
+										{
+											"key": "price",
+											"value": "2"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "description",
+											"value": "sad"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										},
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除单条数据",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "id",
+										"value": "1",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/PetRide/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetRide",
+										"4"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "条件分页",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetRidePage?page=2&pagesize=5&ishot=1&BeginPrice=0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetRidePage"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										},
+										{
+											"key": "pagesize",
+											"value": "5"
+										},
+										{
+											"key": "name",
+											"value": "Tool",
+											"disabled": true
+										},
+										{
+											"key": "ishot",
+											"value": "1"
+										},
+										{
+											"key": "BeginPrice",
+											"value": "0"
+										},
+										{
+											"key": "EndPrice",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据id查询单个",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetRide/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetRide",
+										"2"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "宠物租借",
+					"item": [
+						{
+							"name": "查询全部数据",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6InJvb3QiLCJleHAiOjE3MTAzNDU3OTJ9.IMk6ydU80h6wAlarIs94ILELOxY1SKNABV3zedrMJfqEthOICQlYb519mWezAb9I",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/PetPet",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增单条数据",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetPet?name=Pet1&price=2&qq=1234&description=dis&image=2.png&weight=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPet"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Pet1"
+										},
+										{
+											"key": "price",
+											"value": "2"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "description",
+											"value": "dis"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改数据(根据id)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetPet/update?name=Toolfix&price=2&qq=1234&description=sad&image=2.png&weight=1&id=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPet",
+										"update"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Toolfix"
+										},
+										{
+											"key": "price",
+											"value": "2"
+										},
+										{
+											"key": "qq",
+											"value": "1234"
+										},
+										{
+											"key": "description",
+											"value": "sad"
+										},
+										{
+											"key": "image",
+											"value": "2.png"
+										},
+										{
+											"key": "weight",
+											"value": "1"
+										},
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除单条数据",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "id",
+										"value": "1",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/PetPet/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPet",
+										"4"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "条件分页",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetPetPage?page=1&pagesize=5&ishot=1&BeginPrice=0&EndPrice=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPetPage"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pagesize",
+											"value": "5"
+										},
+										{
+											"key": "name",
+											"value": "Tool",
+											"disabled": true
+										},
+										{
+											"key": "ishot",
+											"value": "1"
+										},
+										{
+											"key": "BeginPrice",
+											"value": "0"
+										},
+										{
+											"key": "EndPrice",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据id查询单个",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/PetPet/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"PetPet",
+										"2"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
