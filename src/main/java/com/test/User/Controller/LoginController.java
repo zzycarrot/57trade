@@ -1,5 +1,6 @@
 package com.test.User.Controller;
 
+import com.test.User.POJO.Pack;
 import com.test.User.POJO.Result;
 import com.test.User.POJO.User;
 import com.test.User.Service.UserService;
@@ -30,7 +31,8 @@ public class LoginController {
             System.out.println(claims);
             String jwt = JWTUtils.genToken(claims);
             log.info("get token");
-            return Result.Success(jwt);
+            Pack pack = new Pack(jwt,tmp.getRole());
+            return Result.Success(pack);
         }else return Result.Error("账号或密码错误");
     }
 }
