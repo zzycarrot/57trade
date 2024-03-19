@@ -23,7 +23,17 @@
                 order by weight desc
             </when>
             <otherwise>
-                order by update_time desc
+                <choose>
+                    <when test = "cost == 0">
+                        order by price asc
+                    </when>
+                    <when test = "cost == 1">
+                        order by price desc
+                    </when>
+                    <otherwise>
+                        order by update_time desc
+                    </otherwise>
+                </choose>
             </otherwise>
         </choose>
         limit #{start},${pagesize}
