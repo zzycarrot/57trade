@@ -48,6 +48,7 @@ public class PetPetServiceImpl implements PetPetService {
     @Override
     public Integer update(Pet pet) {
         pet.setUpdateTime(LocalDateTime.now());
+        if (pet.getDescription()==null)pet.setDescription("暂无描述");
         if(pet.getWeight()==null)pet.setWeight(3);
         if(pet.getView()==null)pet.setView(0);
         return petCharactorMapper.update(pet);

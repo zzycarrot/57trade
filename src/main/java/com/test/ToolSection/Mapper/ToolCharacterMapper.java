@@ -22,4 +22,7 @@ public interface ToolCharacterMapper {
 
     @Update("update toolcharacter set tradeplatform.toolcharacter.name = #{name},tradeplatform.toolcharacter.price = #{price},tradeplatform.toolcharacter.qq = #{qq},tradeplatform.toolcharacter.image = #{image},tradeplatform.toolcharacter.update_time = #{updateTime},tradeplatform.toolcharacter.weight = #{weight},tradeplatform.toolcharacter.view = #{view} where id = #{id}")
     Integer update(Tool tool);
+
+    @Select("select * from toolcharacter where id = #{id}")
+    Tool select(Integer id);
 }

@@ -16,4 +16,6 @@ public interface ToolCharacterService {
     PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice);
 
     Integer update(Tool tool);
+
+    Tool select(Integer id);
 }
