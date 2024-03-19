@@ -34,6 +34,12 @@ public class UserController {
     @DeleteMapping("delete")
     public Result delete(String username){
         log.info("delete:{}",username);
+        User user = userService.select(username);
+        if(user != null) {
+            if (user.getRole().equals("admin")) {
+                return Result.Error("无法删除管理员");
+            }
+        }
         Integer code = userService.delete(username);
         if(code == 1)return Result.Success("删除成功");
         else return Result.Error("不存在该用户");

@@ -12,4 +12,6 @@ public interface UserService {
     void insert(User user);
 
     Integer delete(String username);
+
+    User select(String username);
 }
