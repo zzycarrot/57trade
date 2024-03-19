@@ -8,12 +8,6 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-/**
- * (Article)表实体类
- *
- * @author wang.xianlin
- * @since 2023-08-10 21:51:13
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
