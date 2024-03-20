@@ -24,4 +24,7 @@ public interface PetBorrowMapper {
     Integer update(PetRent petRent);
      @Select("select * from PetBorrow where id = #{id}")
     PetRent select(Integer id);
+
+     @Select("select count(*) from PetBorrow")
+    Integer count();
 }

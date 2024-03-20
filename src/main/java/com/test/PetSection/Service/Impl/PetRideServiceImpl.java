@@ -40,7 +40,7 @@ public class PetRideServiceImpl implements PetRideService {
     public PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice) {
         Integer total;
         List<Pet> list= petRideMapper.selectpage(start,pagesize,name,ishot,beginPrice,endPrice);
-        total = list.size();
+        total = petRideMapper.count();
         PageBean pageBean = new PageBean(total,list);
         return pageBean;
     }

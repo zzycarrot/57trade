@@ -9,6 +9,9 @@ import java.util.List;
 public interface PetPetMapper {
 
 
+    @Select("select count(*) from petpet")
+    Integer count() ;
+
     public List<Pet> list() ;
 
     @Delete("delete from petpet where id = #{id}")

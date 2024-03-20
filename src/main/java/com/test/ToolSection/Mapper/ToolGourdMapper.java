@@ -25,4 +25,7 @@ public interface ToolGourdMapper {
 
     @Select("select * from toolGourd where id = #{id}")
     Tool select(Integer id);
+
+    @Select("SELECT COUNT(*) FROM toolGourd")
+    Integer count();
 }

@@ -9,6 +9,9 @@ import java.util.List;
 public interface SubstituteMapper {
 
 
+    @Select("select count(*) from substitute")
+    Integer count();
+
     public List<Tool> list() ;
 
     @Delete("delete from substitute where id = #{id}")

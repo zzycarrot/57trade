@@ -13,16 +13,16 @@ import java.util.List;
 @Service
 public class ToolGourdServiceImpl implements ToolGourdService {
     @Autowired
-    private ToolGourdMapper toolCharactorMapper;
+    private ToolGourdMapper toolGourdMapper;
     @Override
     public List<Tool> list() {
 
-        return toolCharactorMapper.list();
+        return toolGourdMapper.list();
     }
 
     @Override
     public Integer delete(Integer id) {
-        return toolCharactorMapper.delete(id);
+        return toolGourdMapper.delete(id);
     }
 
     @Override
@@ -31,15 +31,15 @@ public class ToolGourdServiceImpl implements ToolGourdService {
         tool.setUpdateTime(LocalDateTime.now());
         if(tool.getWeight()==null)tool.setWeight(3);
         if(tool.getView()==null)tool.setView(0);
-        toolCharactorMapper.insert(tool);
+        toolGourdMapper.insert(tool);
         return 1;
     }
 
     @Override
     public PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice) {
         Integer total;
-        List<Tool> list= toolCharactorMapper.selectpage(start,pagesize,name,ishot,beginPrice,endPrice);
-        total = list.size();
+        List<Tool> list= toolGourdMapper.selectpage(start,pagesize,name,ishot,beginPrice,endPrice);
+        total = toolGourdMapper.count();
         PageBean pageBean = new PageBean(total,list);
         return pageBean;
     }
@@ -49,11 +49,11 @@ public class ToolGourdServiceImpl implements ToolGourdService {
         tool.setUpdateTime(LocalDateTime.now());
         if(tool.getWeight()==null)tool.setWeight(3);
         if(tool.getView()==null)tool.setView(0);
-        return toolCharactorMapper.update(tool);
+        return toolGourdMapper.update(tool);
     }
 
     @Override
     public Tool select(Integer id) {
-        return toolCharactorMapper.select(id);
+        return toolGourdMapper.select(id);
     }
 }

@@ -25,4 +25,7 @@ public interface ToolPetMapper {
 
     @Select("select * from toolPet where id = #{id}")
     Tool select(Integer id);
+
+    @Select("SELECT COUNT(*) FROM toolPet")
+    Integer count();
 }

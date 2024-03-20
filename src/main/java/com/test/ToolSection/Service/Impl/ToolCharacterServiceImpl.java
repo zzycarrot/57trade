@@ -45,7 +45,7 @@ public class ToolCharacterServiceImpl implements ToolCharacterService {
             if (latest.equals(0))
                 Collections.reverse(list);
         }
-        total = list.size();
+        total = toolCharactorMapper.count();
         PageBean pageBean = new PageBean(total,list);
         return pageBean;
     }

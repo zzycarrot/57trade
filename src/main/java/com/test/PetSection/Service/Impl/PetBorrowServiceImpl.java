@@ -14,16 +14,16 @@ import java.util.List;
 @Service
 public class PetBorrowServiceImpl implements PetBorrowService {
     @Autowired
-    private PetBorrowMapper PetBorrowMapper;
+    private PetBorrowMapper petBorrowMapper;
     @Override
     public List<PetRent> list() {
 
-        return PetBorrowMapper.list();
+        return petBorrowMapper.list();
     }
 
     @Override
     public Integer delete(Integer id) {
-        return PetBorrowMapper.delete(id);
+        return petBorrowMapper.delete(id);
     }
 
     @Override
@@ -32,15 +32,15 @@ public class PetBorrowServiceImpl implements PetBorrowService {
         petRent.setUpdateTime(LocalDateTime.now());
         if(petRent.getWeight()==null)petRent.setWeight(3);
         if(petRent.getView()==null)petRent.setView(0);
-        PetBorrowMapper.insert(petRent);
+        petBorrowMapper.insert(petRent);
         return 1;
     }
 
     @Override
     public PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice) {
         Integer total;
-        List<PetRent> list= PetBorrowMapper.selectpage(start,pagesize,name,ishot,beginPrice,endPrice);
-        total = list.size();
+        List<PetRent> list= petBorrowMapper.selectpage(start,pagesize,name,ishot,beginPrice,endPrice);
+        total = petBorrowMapper.count();
         PageBean pageBean = new PageBean(total,list);
         return pageBean;
     }
@@ -50,11 +50,11 @@ public class PetBorrowServiceImpl implements PetBorrowService {
         petRent.setUpdateTime(LocalDateTime.now());
         if(petRent.getWeight()==null)petRent.setWeight(3);
         if(petRent.getView()==null)petRent.setView(0);
-        return PetBorrowMapper.update(petRent);
+        return petBorrowMapper.update(petRent);
     }
 
     @Override
     public PetRent select(Integer id) {
-        return PetBorrowMapper.select(id);
+        return petBorrowMapper.select(id);
     }
 }

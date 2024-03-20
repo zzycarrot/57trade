@@ -39,7 +39,7 @@ public class ToolPetServiceImpl implements ToolPetService {
     public PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice) {
         Integer total;
         List<Tool> list= toolCharactorMapper.selectpage(start,pagesize,name,ishot,beginPrice,endPrice);
-        total = list.size();
+        total = toolCharactorMapper.count();
         PageBean pageBean = new PageBean(total,list);
         return pageBean;
     }

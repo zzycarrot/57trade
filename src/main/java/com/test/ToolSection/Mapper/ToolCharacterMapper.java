@@ -11,6 +11,9 @@ public interface ToolCharacterMapper {
 
     public List<Tool> list() ;
 
+    @Select("SELECT COUNT(*) FROM toolcharacter")
+    Integer count();
+
     @Delete("delete from toolcharacter where id = #{id}")
     Integer delete(Integer id);
 

@@ -39,7 +39,7 @@ public class AccountServiceImpl implements AccountService {
     public PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice) {
         Integer total;
         List<Tool> list= accountMapper.selectpage(start,pagesize,name,ishot,beginPrice,endPrice);
-        total = list.size();
+        total = accountMapper.count();
         PageBean pageBean = new PageBean(total,list);
         return pageBean;
     }

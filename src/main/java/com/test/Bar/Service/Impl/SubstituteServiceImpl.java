@@ -44,7 +44,7 @@ public class SubstituteServiceImpl implements SubstituteService {
             if (latest.equals(0))
                 Collections.reverse(list);
         }
-        total = list.size();
+        total = substituteMapper.count();
         PageBean pageBean = new PageBean(total,list);
         return pageBean;
     }

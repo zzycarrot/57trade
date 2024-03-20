@@ -8,7 +8,8 @@ import java.util.List;
 @Mapper
 public interface PetRideMapper {
 
-
+    @Select("select * from petride")
+    Integer count();
     public List<Pet> list() ;
 
     @Delete("delete from petride where id = #{id}")

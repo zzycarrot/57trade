@@ -9,6 +9,9 @@ import java.util.List;
 public interface AccountMapper {
 
 
+    @Select("select count(*) from account")
+    Integer count();
+
     public List<Tool> list() ;
 
     @Delete("delete from account where id = #{id}")
