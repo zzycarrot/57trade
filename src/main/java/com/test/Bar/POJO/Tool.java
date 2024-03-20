@@ -16,6 +16,7 @@ public class Tool {
     private Integer price;
     private String time;
     private String qq;
+    private String info;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
     private Integer weight;
