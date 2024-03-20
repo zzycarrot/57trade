@@ -31,7 +31,14 @@
                         order by price desc
                     </when>
                     <otherwise>
-                        order by update_time desc
+                        <choose>
+                            <when test = "latest== 0">
+                                order by update_time asc
+                            </when>
+                            <otherwise>
+                                order by update_time desc
+                            </otherwise>
+                        </choose>
                     </otherwise>
                 </choose>
             </otherwise>

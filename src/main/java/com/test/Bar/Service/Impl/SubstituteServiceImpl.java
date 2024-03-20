@@ -39,11 +39,7 @@ public class SubstituteServiceImpl implements SubstituteService {
     @Override
     public PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer latest, Integer cost, Integer beginPrice, Integer endPrice) {
         Integer total;
-        List<Tool> list= substituteMapper.selectpage(start,pagesize,name,ishot,cost,beginPrice,endPrice);
-        if(ishot == 0){
-            if (latest.equals(0))
-                Collections.reverse(list);
-        }
+        List<Tool> list= substituteMapper.selectpage(start,pagesize,name,ishot,cost,latest,beginPrice,endPrice);
         total = substituteMapper.count();
         PageBean pageBean = new PageBean(total,list);
         return pageBean;

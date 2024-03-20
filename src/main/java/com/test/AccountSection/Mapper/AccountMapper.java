@@ -21,7 +21,7 @@ public interface AccountMapper {
             " values(#{name},#{price},#{qq},#{image},#{createTime},#{updateTime},#{weight},#{view})")
     void insert(Tool tool);
 
-    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice);
+    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot,Integer latest,Integer cost, Integer beginPrice, Integer endPrice);
 
     @Update("update account set tradeplatform.account.name = #{name},tradeplatform.account.price = #{price},tradeplatform.account.qq = #{qq},tradeplatform.account.image = #{image},tradeplatform.account.update_time = #{updateTime},tradeplatform.account.weight = #{weight},tradeplatform.account.view = #{view} where id = #{id}")
     Integer update(Tool tool);

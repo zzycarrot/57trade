@@ -21,7 +21,7 @@ public interface SubstituteMapper {
             " values(#{name},#{reward},#{price},#{qq},#{info},#{time},#{createTime},#{updateTime},#{weight},#{view})")
     void insert(Tool tool);
 
-    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer cost , Integer beginPrice, Integer endPrice);
+    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer cost , Integer latest,Integer beginPrice, Integer endPrice);
 
     @Update("update substitute set tradeplatform.substitute.name = #{name},reward = #{reward},tradeplatform.substitute.price = #{price},tradeplatform.substitute.qq = #{qq},info=#{info},time=#{time},tradeplatform.substitute.update_time = #{updateTime},tradeplatform.substitute.weight = #{weight},tradeplatform.substitute.view = #{view} where id = #{id}")
     Integer update(Tool tool);

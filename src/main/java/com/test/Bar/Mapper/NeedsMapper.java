@@ -21,7 +21,7 @@ public interface NeedsMapper {
             " values(#{name},#{price},#{qq},#{info},#{time},#{createTime},#{updateTime},#{weight},#{view})")
     void insert(Tool tool);
 
-    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer cost , Integer beginPrice, Integer endPrice);
+    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer cost ,Integer latest, Integer beginPrice, Integer endPrice);
 
     @Update("update needs set tradeplatform.needs.name = #{name},tradeplatform.needs.price = #{price},tradeplatform.needs.qq = #{qq},info=#{info},time=#{time},tradeplatform.needs.update_time = #{updateTime},tradeplatform.needs.weight = #{weight},tradeplatform.needs.view = #{view} where id = #{id}")
     Integer update(Tool tool);
