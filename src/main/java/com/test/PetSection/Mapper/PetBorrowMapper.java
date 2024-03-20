@@ -18,7 +18,7 @@ public interface PetBorrowMapper {
     @Insert("insert into PetBorrow(name,week_price,month_price,deposit,qq,image,create_time,update_time,weight,view) values(#{name},#{weekPrice},#{monthPrice},#{deposit},#{qq},#{image},#{createTime},#{updateTime},#{weight},#{view})")
     void insert(PetRent petRent);
 
-    List<PetRent> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice);
+    List<PetRent> selectpage(Integer start, Integer pagesize, String name, Integer ishot,Integer latest,Integer cost, Integer beginPrice, Integer endPrice);
 
     @Update("update PetBorrow set name=#{name},week_price=#{weekPrice},month_price=#{monthPrice},deposit=#{deposit},qq=#{qq},image=#{image},update_time=#{updateTime},weight=#{weight},view=#{view} where id = #{id}")
     Integer update(PetRent petRent);

@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface PetRideMapper {
 
-    @Select("select * from petride")
+    @Select("select count(*) from petride")
     Integer count();
     public List<Pet> list() ;
 
@@ -19,7 +19,7 @@ public interface PetRideMapper {
             " values(#{name},#{price},#{qq},#{description},#{image},#{createTime},#{updateTime},#{weight},#{view})")
     void insert(Pet pet);
 
-    List<Pet> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice);
+    List<Pet> selectpage(Integer start, Integer pagesize, String name, Integer ishot,Integer latest,Integer cost, Integer beginPrice, Integer endPrice);
      @Update("update petride set name = #{name},price = #{price},qq = #{qq},description=#{description},image = #{image},update_time = #{updateTime},weight = #{weight},view = #{view} where id = #{id}")
     Integer update(Pet pet);
      @Select("select * from petride where id = #{id}")

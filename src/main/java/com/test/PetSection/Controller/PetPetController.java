@@ -14,20 +14,20 @@ import java.util.List;
 @RestController
 public class PetPetController {
     @Autowired
-    private PetPetService PetPetService;
+    private PetPetService petPetService;
 
     //查询全部数据
     @GetMapping("/PetPet")
     private Result list(){
         log.info("查询全部数据");
-        List<Pet> petList = PetPetService.list();
+        List<Pet> petList = petPetService.list();
         return Result.Success(petList);
     }
     //根据id查询单条数据
     @GetMapping("/PetPet/{id}")
     private Result select(@PathVariable Integer id){
         log.info("查询id为{}数据",id);
-        Pet pet = PetPetService.select(id);
+        Pet pet = petPetService.select(id);
         if(pet != null)
             return Result.Success(pet);
         else return Result.Error("No id");
@@ -36,7 +36,7 @@ public class PetPetController {
     @DeleteMapping("/PetPet/{id}")
     private Result delete(@PathVariable Integer id){
         log.info("删除id为{}数据",id);
-        Integer code = PetPetService.delete(id);
+        Integer code = petPetService.delete(id);
         if(code == 1)
             return Result.Success(code);
         else return Result.Error("No id");
@@ -45,7 +45,7 @@ public class PetPetController {
     @PostMapping("/PetPet")
     public Result insert(Pet pet){
         log.info("插入数据{}",pet);
-        Integer code = PetPetService.insert(pet);
+        Integer code = petPetService.insert(pet);
         if(code == 1)
             return Result.Success();
         else return Result.Error("all ready exist");
@@ -57,19 +57,21 @@ public class PetPetController {
                              @RequestParam(defaultValue = "5") Integer pagesize,
                              String name,
                              Integer ishot,
+                             Integer latest,
+                             Integer cost,
                              @RequestParam(defaultValue = "0") Integer BeginPrice,
                              @RequestParam(defaultValue = "2147483647") Integer EndPrice){
         log.info("条件分页:{},{}",page,pagesize);
         Integer start = (page-1)*pagesize;
         if(page <=0||pagesize<0)return Result.Error("Must be Positive");
-        PageBean pageBean = PetPetService.selectpage(start,pagesize,name,ishot,BeginPrice,EndPrice);
+        PageBean pageBean = petPetService.selectpage(start,pagesize,name,ishot,latest,cost,BeginPrice,EndPrice);
         return Result.Success(pageBean);
     }
 //    修改文件
     @PostMapping("/PetPet/update")
     public Result update(Pet pet){
         log.info("更新数据:{}",pet);
-        Integer code = PetPetService.update(pet);
+        Integer code = petPetService.update(pet);
         if(code == 1)
             return Result.Success();
         else return Result.Error("No id");

@@ -57,12 +57,16 @@ public class PetRideController {
                              @RequestParam(defaultValue = "5") Integer pagesize,
                              String name,
                              Integer ishot,
+                             Integer latest,
+                             Integer cost,
                              @RequestParam(defaultValue = "0") Integer BeginPrice,
                              @RequestParam(defaultValue = "2147483647") Integer EndPrice){
         log.info("条件分页:{},{}",page,pagesize);
         Integer start = (page-1)*pagesize;
         if(page <=0||pagesize<0)return Result.Error("Must be Positive");
-        PageBean pageBean = petRideService.selectpage(start,pagesize,name,ishot,BeginPrice,EndPrice);
+        System.out.println("diao yong le selectpage");
+        PageBean pageBean = petRideService.selectpage(start,pagesize,name,ishot,latest,cost,BeginPrice,EndPrice);
+        System.out.println("diao yong wan selectpage");
         return Result.Success(pageBean);
     }
 //    修改文件

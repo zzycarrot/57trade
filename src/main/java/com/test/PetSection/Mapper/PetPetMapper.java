@@ -21,7 +21,7 @@ public interface PetPetMapper {
             " values(#{name},#{price},#{qq},#{description},#{image},#{createTime},#{updateTime},#{weight},#{view})")
     void insert(Pet pet);
 
-    List<Pet> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice);
+    List<Pet> selectpage(Integer start, Integer pagesize, String name, Integer ishot,Integer latest,Integer cost, Integer beginPrice, Integer endPrice);
      @Update("update petpet set name = #{name},price = #{price},qq = #{qq},description=#{description},image = #{image},update_time = #{updateTime},weight = #{weight},view = #{view} where id = #{id}")
     Integer update(Pet pet);
      @Select("select * from petpet where id = #{id}")
