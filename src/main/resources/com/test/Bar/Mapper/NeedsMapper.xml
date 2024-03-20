@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.Bar.Mapper.NeedsMapper">
+
+    <select id="list" resultType="com.test.Bar.POJO.Tool">
+        select * from tradeplatform.needs
+    </select>
+
+    <select id="selectpage" resultType="com.test.Bar.POJO.Tool">
+        select * from tradeplatform.needs
+        <where>
+            <if test="name != null">
+                 and name like concat('%',#{name},'%')
+            </if>
+            <if test="beginPrice != null and endPrice != null">
+                and price between #{beginPrice} and #{endPrice}
+            </if>
+        </where>
+        <choose>
+            <when test="ishot == 1">
+                order by weight desc
+            </when>
+            <otherwise>
+                <choose>
+                    <when test = "cost == 0">
+                        order by price asc
+                    </when>
+                    <when test = "cost == 1">
+                        order by price desc
+                    </when>
+                    <otherwise>
+                        order by update_time desc
+                    </otherwise>
+                </choose>
+            </otherwise>
+        </choose>
+        limit #{start},${pagesize}
+    </select>
+
+</mapper>
