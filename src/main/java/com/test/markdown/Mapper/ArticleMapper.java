@@ -10,10 +10,11 @@ import java.util.List;
 @Mapper
 public interface ArticleMapper {
 
-    @Select("select * from article limit #{start},#{size}")
+    @Select("select * from article order by create_time desc limit #{start},#{size}")
     public List<Article> list(Integer start,Integer size);
 
-    @Select("SELECT COUNT(*) from article")
+
+    @Select("select count(*) from article")
     public Integer count();
 
     @Select("select * from article where id = #{id}")
