@@ -18,7 +18,7 @@ public interface ToolPetMapper {
             " values(#{name},#{price},#{qq},#{image},#{createTime},#{updateTime},#{weight},#{view})")
     void insert(Tool tool);
 
-    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice);
+    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot,Integer latest, Integer cost ,Integer beginPrice, Integer endPrice);
 
     @Update("update toolPet set tradeplatform.toolPet.name = #{name},tradeplatform.toolPet.price = #{price},tradeplatform.toolPet.qq = #{qq},tradeplatform.toolPet.image = #{image},tradeplatform.toolPet.update_time = #{updateTime},tradeplatform.toolPet.weight = #{weight},tradeplatform.toolPet.view = #{view} where id = #{id}")
     Integer update(Tool tool);

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -36,9 +37,10 @@ public class ToolGourdServiceImpl implements ToolGourdService {
     }
 
     @Override
-    public PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice) {
+    public PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer latest,Integer cost, Integer beginPrice, Integer endPrice) {
         Integer total;
-        List<Tool> list= toolGourdMapper.selectpage(start,pagesize,name,ishot,beginPrice,endPrice);
+        List<Tool> list= toolGourdMapper.selectpage(start,pagesize,name,ishot,latest,cost,beginPrice,endPrice);
+
         total = toolGourdMapper.count();
         PageBean pageBean = new PageBean(total,list);
         return pageBean;

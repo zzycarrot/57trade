@@ -13,7 +13,7 @@ public interface ToolGourdService {
 
     Integer insert(Tool tool);
 
-    PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice);
+    PageBean selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer latest, Integer cost, Integer beginPrice, Integer endPrice);
 
     Integer update(Tool tool);
 

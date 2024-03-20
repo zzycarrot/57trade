@@ -18,7 +18,7 @@ public interface ToolGourdMapper {
             " values(#{name},#{price},#{qq},#{image},#{createTime},#{updateTime},#{weight},#{view})")
     void insert(Tool tool);
 
-    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer beginPrice, Integer endPrice);
+    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot,Integer latest, Integer cost ,Integer beginPrice, Integer endPrice);
 
     @Update("update toolGourd set tradeplatform.toolGourd.name = #{name},tradeplatform.toolGourd.price = #{price},tradeplatform.toolGourd.qq = #{qq},tradeplatform.toolGourd.image = #{image},tradeplatform.toolGourd.update_time = #{updateTime},tradeplatform.toolGourd.weight = #{weight},tradeplatform.toolGourd.view = #{view} where id = #{id}")
     Integer update(Tool tool);

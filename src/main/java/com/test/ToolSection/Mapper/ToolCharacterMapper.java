@@ -21,7 +21,7 @@ public interface ToolCharacterMapper {
             " values(#{name},#{price},#{qq},#{image},#{createTime},#{updateTime},#{weight},#{view})")
     void insert(Tool tool);
 
-    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot, Integer cost ,Integer beginPrice, Integer endPrice);
+    List<Tool> selectpage(Integer start, Integer pagesize, String name, Integer ishot,Integer latest, Integer cost ,Integer beginPrice, Integer endPrice);
 
     @Update("update toolcharacter set tradeplatform.toolcharacter.name = #{name},tradeplatform.toolcharacter.price = #{price},tradeplatform.toolcharacter.qq = #{qq},tradeplatform.toolcharacter.image = #{image},tradeplatform.toolcharacter.update_time = #{updateTime},tradeplatform.toolcharacter.weight = #{weight},tradeplatform.toolcharacter.view = #{view} where id = #{id}")
     Integer update(Tool tool);
