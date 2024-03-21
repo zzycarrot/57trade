@@ -85,7 +85,8 @@ public class ToolCharacterController {
 //    上传文件
     @PostMapping("/uploadFile")
     public Result uploadImg(@RequestParam("file") MultipartFile file, @RequestParam("equipmentId") String equipmentId) {
-        String baseDir = "./imgFile";  // 这里不能直接使用相对路径
+//        String baseDir = "./imgFile";  // 这里不能直接使用相对路径
+        String baseDir = "C:\\Users\\26527\\Desktop\\vue - 副本\\vue-project\\src\\assets\\tian";
         //linux 环境下去掉点
         if (!file.isEmpty()) {
             String name = file.getOriginalFilename();

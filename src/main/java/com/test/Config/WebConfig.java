@@ -23,7 +23,7 @@ public class WebConfig implements WebMvcConfigurer {
                 //是否允许证书
                 .allowCredentials (true)
                 //设置允许的方法
-                .allowedMethods ("GET","POST")
+                .allowedMethods ("GET","POST","PUT","DELETE")
                 //设置允许的header属性
                 .allowedHeaders ("*")
                 //允许跨域时间
