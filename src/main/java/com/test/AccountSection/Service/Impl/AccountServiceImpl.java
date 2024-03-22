@@ -4,6 +4,7 @@ import com.test.AccountSection.Mapper.AccountMapper;
 import com.test.AccountSection.POJO.PageBean;
 import com.test.AccountSection.POJO.Tool;
 import com.test.AccountSection.Service.AccountService;
+import com.test.Delete.DeleteImage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,12 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Integer delete(Integer id) {
+        String image = accountMapper.select(id).getImage();
+        if(image != null){
+            String path = "/root/pic";
+            DeleteImage deleteImage = new DeleteImage();
+            deleteImage.deleteImage(image);
+        }
         return accountMapper.delete(id);
     }
 

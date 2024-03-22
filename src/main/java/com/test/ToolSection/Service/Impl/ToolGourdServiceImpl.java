@@ -1,5 +1,6 @@
 package com.test.ToolSection.Service.Impl;
 
+import com.test.Delete.DeleteImage;
 import com.test.ToolSection.Mapper.ToolGourdMapper;
 import com.test.ToolSection.POJO.PageBean;
 import com.test.ToolSection.POJO.Tool;
@@ -23,6 +24,12 @@ public class ToolGourdServiceImpl implements ToolGourdService {
 
     @Override
     public Integer delete(Integer id) {
+        String image = toolGourdMapper.select(id).getImage();
+        if(image != null){
+            String path = "/root/pic";
+            DeleteImage deleteImage = new DeleteImage();
+            deleteImage.deleteImage(image);
+        }
         return toolGourdMapper.delete(id);
     }
 

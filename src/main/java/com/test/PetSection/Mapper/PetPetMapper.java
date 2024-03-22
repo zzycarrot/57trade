@@ -9,21 +9,21 @@ import java.util.List;
 public interface PetPetMapper {
 
 
-    @Select("select count(*) from petpet")
+    @Select("select count(*) from PetPet")
     Integer count() ;
 
     public List<Pet> list() ;
 
-    @Delete("delete from petpet where id = #{id}")
+    @Delete("delete from PetPet where id = #{id}")
     Integer delete(Integer id);
 
-    @Insert("INSERT into petpet (tradeplatform.petpet.name, tradeplatform.petpet.price, tradeplatform.petpet.qq,tradeplatform.petpet.description ,tradeplatform.petpet.image, tradeplatform.petpet.create_time, tradeplatform.petpet.update_time, tradeplatform.petpet.weight, tradeplatform.petpet.view) " +
+    @Insert("INSERT into PetPet (tradeplatform.PetPet.name, tradeplatform.PetPet.price, tradeplatform.PetPet.qq,tradeplatform.PetPet.description ,tradeplatform.PetPet.image, tradeplatform.PetPet.create_time, tradeplatform.PetPet.update_time, tradeplatform.PetPet.weight, tradeplatform.PetPet.view) " +
             " values(#{name},#{price},#{qq},#{description},#{image},#{createTime},#{updateTime},#{weight},#{view})")
     void insert(Pet pet);
 
     List<Pet> selectpage(Integer start, Integer pagesize, String name, Integer ishot,Integer latest,Integer cost, Integer beginPrice, Integer endPrice);
-     @Update("update petpet set name = #{name},price = #{price},qq = #{qq},description=#{description},image = #{image},update_time = #{updateTime},weight = #{weight},view = #{view} where id = #{id}")
+     @Update("update PetPet set name = #{name},price = #{price},qq = #{qq},description=#{description},image = #{image},update_time = #{updateTime},weight = #{weight},view = #{view} where id = #{id}")
     Integer update(Pet pet);
-     @Select("select * from petpet where id = #{id}")
+     @Select("select * from PetPet where id = #{id}")
     Pet select(Integer id);
 }

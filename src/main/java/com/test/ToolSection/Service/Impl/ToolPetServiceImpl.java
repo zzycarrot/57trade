@@ -1,5 +1,6 @@
 package com.test.ToolSection.Service.Impl;
 
+import com.test.Delete.DeleteImage;
 import com.test.ToolSection.Mapper.ToolPetMapper;
 import com.test.ToolSection.POJO.PageBean;
 import com.test.ToolSection.POJO.Tool;
@@ -23,6 +24,12 @@ public class ToolPetServiceImpl implements ToolPetService {
 
     @Override
     public Integer delete(Integer id) {
+        String image = toolCharactorMapper.select(id).getImage();
+        if(image != null){
+            String path = "/root/pic";
+            DeleteImage deleteImage = new DeleteImage();
+            deleteImage.deleteImage(image);
+        }
         return toolCharactorMapper.delete(id);
     }
 

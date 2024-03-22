@@ -1,5 +1,6 @@
 package com.test.ToolSection.Service.Impl;
 
+import com.test.Delete.DeleteImage;
 import com.test.ToolSection.Mapper.ToolCharacterMapper;
 import com.test.ToolSection.POJO.PageBean;
 import com.test.ToolSection.POJO.Tool;
@@ -16,6 +17,8 @@ import java.util.List;
 public class ToolCharacterServiceImpl implements ToolCharacterService {
     @Autowired
     private ToolCharacterMapper toolCharactorMapper;
+
+
     @Override
     public List<Tool> list() {
 
@@ -24,7 +27,14 @@ public class ToolCharacterServiceImpl implements ToolCharacterService {
 
     @Override
     public Integer delete(Integer id) {
-        return toolCharactorMapper.delete(id);
+        String image = toolCharactorMapper.select(id).getImage();
+        if(image != null){
+            String path = "/root/pic";
+            DeleteImage deleteImage = new DeleteImage();
+            deleteImage.deleteImage(image);
+        }
+        Integer code =  toolCharactorMapper.delete(id);
+        return code;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.test.PetSection.Service.Impl;
 
+import com.test.Delete.DeleteImage;
 import com.test.PetSection.Mapper.PetPetMapper;
 import com.test.PetSection.POJO.PageBean;
 import com.test.PetSection.POJO.Pet;
@@ -22,6 +23,12 @@ public class PetPetServiceImpl implements PetPetService {
 
     @Override
     public Integer delete(Integer id) {
+        String image = petPetMapper.select(id).getImage();
+        if(image != null){
+            String path = "/root/pic";
+            DeleteImage deleteImage = new DeleteImage();
+            deleteImage.deleteImage(image);
+        }
         return petPetMapper.delete(id);
     }
 
