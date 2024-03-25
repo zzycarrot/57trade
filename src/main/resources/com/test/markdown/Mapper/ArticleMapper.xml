@@ -11,4 +11,7 @@
             </if>
         </foreach>
     </delete>
+    <select id="list" resultType="com.test.markdown.POJO.Article">
+        select id,title,create_time  from article order by create_time desc limit #{start},#{size}
+    </select>
 </mapper>

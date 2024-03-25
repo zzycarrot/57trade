@@ -12,6 +12,7 @@ import com.test.ToolSection.POJO.Result;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
@@ -86,7 +87,13 @@ public class ToolCharacterController {
     @PostMapping("/uploadFile")
     public Result uploadImg(@RequestParam("file") MultipartFile file, @RequestParam("equipmentId") String equipmentId) {
 //        String baseDir = "./imgFile";  // 这里不能直接使用相对路径
-        String baseDir = "/root/pic";
+        String baseDir = "/root/pic/";
+        String command = "chmod u+rw /root/pic/";
+        try {
+            Runtime.getRuntime().exec(command);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //linux 环境下去掉点
         if (!file.isEmpty()) {
             String name = file.getOriginalFilename();
@@ -95,6 +102,9 @@ public class ToolCharacterController {
             try {
                 // 这里代码都是没有问题的
                 File filePath = new File(baseDir, path);
+                filePath.setWritable(true);//设置执行权限
+                filePath.setReadable(true);//设置读权限
+                filePath.setExecutable(true);//设施写权限
                 // 第一次执行代码时，路径是不存在的
                 log.info("文件保存路径：{}，是否存在：{}", filePath.getParentFile().exists(), filePath.getParent());
                 if (!filePath.getParentFile().exists()) {   // 如果存放路径的父目录不存在，就创建它。
@@ -105,7 +115,7 @@ public class ToolCharacterController {
                 // 此处使用相对路径，似乎是一个坑！
                 // 相对路径：filePath
                 // 绝对路径：filePath.getAbsoluteFile()
-                log.info("文件将要保存的路径：{}", filePath.getPath());
+                log.info("1文件将要保存的路径：{}", filePath.getPath());
                 file.transferTo(filePath.getAbsoluteFile());
                 log.info("文件成功保存的路径：{}", filePath.getAbsolutePath());
                 return Result.Success(path);

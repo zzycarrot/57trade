@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface PzMapper {
 
-    @Select("select * from pz order by create_time DESC  limit #{start},#{size}")
+    @Select("select id,title,create_time from pz order by create_time DESC  limit #{start},#{size}")
     public List<Article> list(Integer start,Integer size);
 
     @Select("SELECT COUNT(*) from pz")

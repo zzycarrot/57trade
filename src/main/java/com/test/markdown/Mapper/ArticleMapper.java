@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface ArticleMapper {
 
-    @Select("select * from article order by create_time desc limit #{start},#{size}")
+
     public List<Article> list(Integer start,Integer size);
 
 
