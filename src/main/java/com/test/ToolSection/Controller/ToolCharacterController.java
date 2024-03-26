@@ -3,6 +3,7 @@ package com.test.ToolSection.Controller;
 import com.test.ToolSection.POJO.Result;
 import com.test.ToolSection.Service.ToolCharacterService;
 import lombok.extern.slf4j.Slf4j;
+import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -87,8 +88,9 @@ public class ToolCharacterController {
     @PostMapping("/uploadFile")
     public Result uploadImg(@RequestParam("file") MultipartFile file, @RequestParam("equipmentId") String equipmentId) {
 //        String baseDir = "./imgFile";  // 这里不能直接使用相对路径
-        String baseDir = "/root/pic/";
-        String command = "chmod u+rw /root/pic/";
+
+        String baseDir = "/www/wwwroot/dist/pic";
+        String command = "chmod a+rw /www/wwwroot/dist/pic";
         try {
             Runtime.getRuntime().exec(command);
         } catch (IOException e) {
@@ -118,6 +120,9 @@ public class ToolCharacterController {
                 log.info("1文件将要保存的路径：{}", filePath.getPath());
                 file.transferTo(filePath.getAbsoluteFile());
                 log.info("文件成功保存的路径：{}", filePath.getAbsolutePath());
+                Thumbnails.of(filePath.getPath())
+                        .size(640, 480)
+                        .toFile(filePath.getPath());
                 return Result.Success(path);
             } catch (Exception e) {
                 log.error(e.getMessage());

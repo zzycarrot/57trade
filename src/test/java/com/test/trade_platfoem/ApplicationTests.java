@@ -4,11 +4,13 @@ import com.test.Delete.DeleteImage;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import net.coobird.thumbnailator.Thumbnails;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.crypto.SecretKey;
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,13 +18,20 @@ import java.util.Map;
 class ApplicationTests {
 
 
-    @Test
-    public void deleteImage() {
-        String filename = "c848d6300de542b88bbef1a1332a7732.png";
-        DeleteImage deleteImage = new DeleteImage();
-        deleteImage.deleteImage(filename);
-    }
-
+//    @Test
+//    public void deleteImage() {
+//        String filename = "c848d6300de542b88bbef1a1332a7732.png";
+//        DeleteImage deleteImage = new DeleteImage();
+//        deleteImage.deleteImage(filename);
+//    }
+//
+//    @Test
+//    public void comprassImg() throws IOException {
+//        Thumbnails.of("C:\\Users\\ez_zz\\Desktop\\pic\\山.png")
+//                .size(640, 480)
+//                .toFile("C:\\Users\\ez_zz\\Desktop\\pic\\山comp.png");
+//
+//    }
 
     // 创建token密钥的key,并且使用 HMAC-SHA-256 加密算法
 //    SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode("57Tradetoken57Tradetoken57Tradetoken57Tradetoken57Tradetoken57Tradetoken"));
